@@ -100,7 +100,7 @@ The generated images are saved in the folder you specify (default: `images_diff`
 
 
 
-🎨 Optional: Generate Images Using StyleGAN3
+🎨 Generate Images Using StyleGAN3
 =================================================
 
 To generate high-quality images using **StyleGAN3**, you can use the repository:
