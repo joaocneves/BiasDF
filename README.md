@@ -81,7 +81,7 @@ The generated images are saved in the folder you specify (default: `images_diff`
 2️⃣ Open a terminal  
 3️⃣ Run the script using:
 
-    python generate_images.py --input ./df_input_description.csv --output ./images_diff
+    python diff_model_img_generation.py --input ./df_input_description.csv --output ./images_diff
 
 ✔️ This will read your CSV file and save images like:
 
