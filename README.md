@@ -136,7 +136,47 @@ You can then perform **fairness or bias analysis** by comparing score distributi
 
 ✅ This enables a full pipeline from synthetic data generation to fairness evaluation of AI models.
 
+📈 Step 3: Run Bias Analysis
+=================================================
+After generating your images and running your deepfake detection model to get prediction scores, you can use our script to compute the bias metrics described in the paper (brisk, brisk*, EOD, and statistical significance).
 
+▶️ Script: run_bias_analysis.py
+This script calculates bias metrics for a selected attribute using your detection scores.
+
+✅ Requirements
+Make sure your CSV file contains:
+
+A score column (output of your deepfake detection model)
+
+One binary column for the target attribute (e.g., isfemale)
+
+Several other binary subgroup attributes (e.g., isold, isblackhair, etc.)
+
+🧠 Usage
+bash
+Copier
+Modifier
+python run_bias_analysis.py \
+    --input df_input_description_with_scores.csv \
+    --attribute isfemale \
+    --subgroups isold,isblackhair,iswhite,isblondehair,ispointynose
+📌 Arguments
+Argument	Description
+--input	Path to CSV file with scores and binary attributes
+--attribute	Attribute to evaluate bias for (e.g., isfemale)
+--subgroups	Comma-separated list of other binary attributes (e.g., isold,iswhite,isblackhair)
+
+📤 Output Example
+yaml
+Copier
+Modifier
+Running bias analysis for attribute: isfemale
+
+brisk*: 6.42
+brisk: 3.15
+EOD max: 4.77
+EOD mean: 2.26
+Paired t-test p-value: 0.000003
 
 📬 Contact
 =================================================
