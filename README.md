@@ -142,41 +142,37 @@ After generating your images and running your deepfake detection model to get pr
 
 ▶️ Script: run_bias_analysis.py
 This script calculates bias metrics for a selected attribute using your detection scores.
+run_bias_analysis.py
 
-✅ Requirements
-Make sure your CSV file contains:
+This script computes bias metrics for a target facial attribute using scores from a deepfake detection model.
+It calculates the following:
+- brisk (average TPR gap across subgroups)
+- brisk* (maximum TPR gap)
+- EOD (Equal Opportunity Difference)
+- Paired t-test (statistical significance of subgroup differences)
 
-A score column (output of your deepfake detection model)
+Usage (from terminal):
 
-One binary column for the target attribute (e.g., isfemale)
+    python run_bias_analysis.py \
+        --input df_input_description_with_scores.csv \
+        --attribute black_hair \
+        --subgroups isold,iswhite,isblackhair,isblondehair
 
-Several other binary subgroup attributes (e.g., isold, isblackhair, etc.)
+Arguments:
+    --input      Path to the CSV file containing scores and binary attribute columns
+    --attribute  Target attribute for bias analysis (e.g., black_hair)
+    --subgroups  Comma-separated list of binary subgroup attributes
 
-🧠 Usage
-bash
-Copier
-Modifier
-python run_bias_analysis.py \
-    --input df_input_description_with_scores.csv \
-    --attribute isfemale \
-    --subgroups isold,isblackhair,iswhite,isblondehair,ispointynose
-📌 Arguments
-Argument	Description
---input	Path to CSV file with scores and binary attributes
---attribute	Attribute to evaluate bias for (e.g., isfemale)
---subgroups	Comma-separated list of other binary attributes (e.g., isold,iswhite,isblackhair)
+Example:
+    python run_bias_analysis.py \
+        --input df_input_description_with_scores.csv \
+        --attribute black_hair \
+        --subgroups isold,isblackhair,iswhite,isroundface
 
-📤 Output Example
-yaml
-Copier
-Modifier
-Running bias analysis for attribute: isfemale
-
-brisk*: 6.42
-brisk: 3.15
-EOD max: 4.77
-EOD mean: 2.26
-Paired t-test p-value: 0.000003
+Make sure your CSV contains:
+    - A 'score' column (output of your detection model)
+    - A binary column for the target attribute (e.g., black_hair)
+    - Several binary columns for subgroup attributes
 
 📬 Contact
 =================================================
