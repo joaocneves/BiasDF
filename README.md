@@ -175,7 +175,7 @@ Make sure your CSV contains:
     - Several binary columns for subgroup attributes
  How to Use Script  for multiple attributes
 
-      python run_bias_analysis.py \
+      python run_bias_analysis_multiple.py \
           --input ./df_input_description_with_scores.csv \
           --attributes isfemale,isold,iswhite \
           --subgroups isblackhair,isroundface,ispointynose
@@ -189,14 +189,14 @@ Argument	Description
 
 ✅ Output Example
 
-📌 Analyzing bias for: isfemale
+📌 Analyzing bias for: female
         brisk*: 6.21
         brisk : 3.14
         EOD max: 4.77
         EOD mean: 2.26
         Paired t-test p-value: 0.000003
 
-📌 Analyzing bias for: isold
+📌 Analyzing bias for: old
         brisk*: 4.90
         brisk : 2.33
         EOD max: 3.98
@@ -207,7 +207,7 @@ Make sure your file (e.g., df_input_description_with_scores.csv) contains:
 
 A score column (deepfake detector output)
 
-Binary attribute columns (e.g., isfemale, isold, isblackhair, etc.)
+Binary attribute columns (e.g., female, old, blackhair, etc.)
 
 
 📬 Contact
