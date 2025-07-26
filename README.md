@@ -183,6 +183,7 @@ Make sure your CSV contains:
 
 🧾 Arguments
 Argument	Description
+---------------------------
    --input	Path to the CSV file with detection scores and attributes
    --attributes	Comma-separated list of target attributes (e.g., isfemale,isold)
    --subgroups	Comma-separated list of subgroup attributes (e.g., isblackhair,isroundface)
