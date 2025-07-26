@@ -190,6 +190,7 @@ Argument	Description
 ✅ Output Example
 
 📌 Analyzing bias for: female
+--------------------------
         brisk*: 6.21
         brisk : 3.14
         EOD max: 4.77
@@ -197,12 +198,14 @@ Argument	Description
         Paired t-test p-value: 0.000003
 
 📌 Analyzing bias for: old
+------------------------
         brisk*: 4.90
         brisk : 2.33
         EOD max: 3.98
         EOD mean: 1.71
         Paired t-test p-value: 0.002100
 📂 Required CSV Format
+------------------------------
 Make sure your file (e.g., df_input_description_with_scores.csv) contains:
 
 A score column (deepfake detector output)
