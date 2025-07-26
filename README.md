@@ -173,6 +173,42 @@ Make sure your CSV contains:
     - A 'score' column (output of your detection model)
     - A binary column for the target attribute (e.g., black_hair)
     - Several binary columns for subgroup attributes
+ How to Use Script 3 (Step by Step)
+
+      python run_bias_analysis.py \
+          --input ./df_input_description_with_scores.csv \
+          --attributes isfemale,isold,iswhite \
+          --subgroups isblackhair,isroundface,ispointynose
+✅ This will run bias analysis on each attribute listed in --attributes.
+
+🧾 Arguments
+Argument	Description
+   --input	Path to the CSV file with detection scores and attributes
+   --attributes	Comma-separated list of target attributes (e.g., isfemale,isold)
+   --subgroups	Comma-separated list of subgroup attributes (e.g., isblackhair,isroundface)
+
+✅ Output Example
+
+📌 Analyzing bias for: isfemale
+     brisk*: 6.21
+     brisk : 3.14
+     EOD max: 4.77
+     EOD mean: 2.26
+     Paired t-test p-value: 0.000003
+
+📌 Analyzing bias for: isold
+     brisk*: 4.90
+     brisk : 2.33
+     EOD max: 3.98
+     EOD mean: 1.71
+     Paired t-test p-value: 0.002100
+   📂 Required CSV Format
+Make sure your file (e.g., df_input_description_with_scores.csv) contains:
+
+A score column (deepfake detector output)
+
+Binary attribute columns (e.g., isfemale, isold, isblackhair, etc.)
+
 
 📬 Contact
 =================================================
